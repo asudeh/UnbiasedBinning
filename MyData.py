@@ -1,4 +1,4 @@
-# (c) 2025 Anonymous.
+# (c) 2025 A. Asudeh.
 
 import numpy as np
 import pandas as pd
@@ -39,7 +39,7 @@ def gen_data(n=1000, m=[1000-50,1000+50], s=[300,300], p=[0.5, 0.5], dist='norma
     return D
 
 
-def load_xg_dataset(filepath, x_idx, g_idx, group_labels=None):
+def load_xg_dataset(filepath, x_idx, g_idx, group_labels=None, y_idx=None):
     """
     Loads a dataset from a file, extracts columns x and g by index, 
     removes other columns, and encodes text labels as numbers.
@@ -74,5 +74,9 @@ def load_xg_dataset(filepath, x_idx, g_idx, group_labels=None):
     #     g[i] = g_mapping[g_raw.iloc[i]]
     g = g_raw.replace(g_mapping).values
     # g = g.astype(int)
+
+    if y_idx is not None:
+        y = df.iloc[:, y_idx].copy()
+        return np.column_stack((x, g, y))
 
     return np.column_stack((x, g))

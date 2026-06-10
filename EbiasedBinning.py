@@ -1,7 +1,6 @@
-# (c) 2025 Anonymous.
-
 import numpy as np
 
+# this is the DP algorithm for e-biased binning, as described in the paper
 def ebias_binning(data, k, x=0, groups=1, eps=0.03):
     """
     Given as dataset, a value k, an atttribute x, and a value eps, it creates k bins that are eps-biased

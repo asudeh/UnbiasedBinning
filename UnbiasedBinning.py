@@ -1,4 +1,4 @@
-# (c) 2025 Anonymous.
+# (c) 2025 A. Asudeh.
 
 import numpy as np
 
